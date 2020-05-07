@@ -1,8 +1,8 @@
 const context = {
     // Made these in the same scope as handlebars so you can render them with conditionals
     // 0 by default, might need to do some checks if the context is ever empty later on
-    "activeCategory": 0,
-    "activeSubCategory": 0,
+    "activeCategory": null,
+    "activeSubCategory": null,
 
     // Rest of context is the same except no manual ids
     "categories": [
@@ -81,7 +81,7 @@ function selectCategory(index) {
         return
 
     context.activeCategory = index;
-    context.activeSubCategory = 0;
+    context.activeSubCategory = null;
     compileTemplate();
 }
 
@@ -91,6 +91,11 @@ function selectSubCategory(index) {
 
     context.activeSubCategory = index;
     compileTemplate();
+	
+	// Create Quill object
+	var quill = new Quill('#editor', {
+		theme: 'snow'   // Specify theme in configuration
+	});
 }
 
 function createEntry() {

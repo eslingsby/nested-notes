@@ -4,7 +4,8 @@
         <meta charset="UTF-8"> 
         <link href="style.css" rel="stylesheet"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <script src="https://kit.fontawesome.com/2c7fa631b5.js" crossorigin="anonymous"></script>
+		
+		<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
         <title>nested-notes</title> 
     </head> 
@@ -13,6 +14,9 @@
 
         <!-- Included locally, why not -->
         <script src="thirdparty/handlebars.min-v4.7.6.js"></script>
+		
+		<script src="https://kit.fontawesome.com/2c7fa631b5.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
         <!-- Using Custom Helper 'ifEquals' and '@index' instead of giving each child its own ID -->
         <!-- '../' to access variables in parent scope of context json -->
@@ -68,7 +72,7 @@
                         {{#ifEquals @index ../activeCategory}}
                             {{#each subcategories}}
                                 {{#ifEquals @index ../../activeSubCategory}}
-                                    {{content}}
+                                    <div id="editor"></div>
                                 {{/ifEquals}}
                             {{/each}}
                         {{/ifEquals}}
